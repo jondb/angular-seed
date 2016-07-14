@@ -9,6 +9,12 @@ angular.module('myApp.view1', ['ngRoute'])
   });
 }])
 
-.controller('View1Ctrl', [function() {
+.controller('View1Ctrl', ['messageService', '$timeout', function(messageService, $timeout) {
+
+	messageService.add("info", "In veiw1 ctrl");
+	$timeout (function() {
+		messageService.add("warning", "Don't go to view 2!");
+	}, 1500);
+
 
 }]);
